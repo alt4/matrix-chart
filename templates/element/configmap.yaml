@@ -22,7 +22,7 @@ data:
         "auth_header_logo_url": {{ .Values.element.branding.authHeaderLogoUrl | quote }},
         {{- end }}
         {{- if .Values.element.branding.authFooterLinks }}
-        "auth_footer_links": {{ .Values.element.branding.authFooterLinks | toJson }},
+        "auth_footer_links": {{ .Values.element.branding.authFooterLinks | toJson }}
         {{- end }}
       },
       {{- if .Values.element.integrations.enabled }}
