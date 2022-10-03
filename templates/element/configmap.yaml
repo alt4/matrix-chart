@@ -16,13 +16,13 @@ data:
       "brand": {{ .Values.element.branding.brand | quote }},
       "branding": {
         {{- if .Values.element.branding.welcomeBackgroundUrl }}
-        "welcomeBackgroundUrl": {{ .Values.element.branding.welcomeBackgroundUrl | quote }},
+        "welcome_background_url": {{ .Values.element.branding.welcomeBackgroundUrl | quote }},
         {{- end }}
         {{- if .Values.element.branding.authHeaderLogoUrl }}
-        "authHeaderLogoUrl": {{ .Values.element.branding.authHeaderLogoUrl | quote }},
+        "auth_header_logo_url": {{ .Values.element.branding.authHeaderLogoUrl | quote }},
         {{- end }}
         {{- if .Values.element.branding.authFooterLinks }}
-        "authFooterLinks": {{ .Values.element.branding.authFooterLinks | toJson }},
+        "auth_footer_links": {{ .Values.element.branding.authFooterLinks | toJson }}
         {{- end }}
       },
       {{- if .Values.element.integrations.enabled }}
@@ -31,9 +31,9 @@ data:
       "integrations_widgets_urls": {{ .Values.element.integrations.widgets | toJson }},
       {{- end }}
       {{- if .Values.element.labs }} {{/* if not empty */}}
-      "showLabsSettings": true,
+      "show_labs_settings": true,
       {{- else }}
-      "showLabsSettings": false,
+      "show_labs_settings": false,
       {{- end }}
       "features": {
         {{- if .Values.element.labs }}
@@ -43,13 +43,13 @@ data:
         {{ last .Values.element.labs | quote }}: "labs"
         {{- end }}
       },
-      "roomDirectory": {
+      "room_directory": {
         "servers": {{ .Values.element.roomDirectoryServers | toJson }}
       },
       {{- if .Values.element.welcomeUserId }}
-      "welcomeUserId": {{ .Values.element.welcomeUserId | quote }},
+      "welcome_user_id": {{ .Values.element.welcomeUserId | quote }},
       {{- end }}
-      "permalinkPrefix": {{ .Values.element.permalinkPrefix | quote }}
+      "permalink_prefix": {{ .Values.element.permalinkPrefix | quote }}
     }
   nginx.conf: |
     worker_processes  auto;
